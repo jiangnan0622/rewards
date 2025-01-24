@@ -76,10 +76,10 @@ function updateLotteryButton() {
     const lotteryBtn = document.getElementById('openLottery');
     if (remainingDraws <= 0) {
         lotteryBtn.disabled = true;
-        lotteryBtn.textContent = '今日已抽奖';
+        lotteryBtn.textContent = 'Today is Drawings';
     } else {
         lotteryBtn.disabled = false;
-        lotteryBtn.textContent = '立即抽奖';
+        lotteryBtn.textContent = 'Sweepstakes Now';
     }
 }
 
@@ -323,6 +323,20 @@ function drawPrize() {
 
 // 修改抽奖按钮事件监听
 document.getElementById('openLottery').addEventListener('click', function() {
+    resetDraws(); // 检查是否需要重置次数
+    
+    if (remainingDraws <= 0) {
+        alert('今日已抽奖，请明天再来！');
+        return;
+    }
+    
+    // 扣除抽奖次数
+    remainingDraws--;
+    localStorage.setItem('remainingDraws', remainingDraws);
+    
+    // 更新按钮显示
+    updateLotteryButton();
+    
     // 抽奖动画
     const lotteryItems = document.querySelectorAll('.lottery-item');
     let currentIndex = 0;

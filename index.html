@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>矿洞探索 - 奖励计划</title>
+  <title>Mine Exploration - Reward Program</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>  
   <nav class="nav-wrapper">
     <div class="nav-content">
-      <h3 class="logo">下矿活动</h3>
+      <h3 class="logo">downstream mining activity</h3>
       <ul class="nav-links">
-        <li><a href="#rewards">奖励</a></li>
-        <li><a href="#progress">探索进度</a></li>
-        <li><a href="#points">积分规则</a></li>
+        <li><a href="#rewards">rewards</a></li>
+        <li><a href="#progress">Exploration progress</a></li>
+        <li><a href="#points">Points Rules</a></li>
       </ul>
     </div>
   </nav>
@@ -22,112 +22,122 @@
     <!-- 区块 -->
     <section class="hero">
       <div class="hero-content">
-        <h1 class="hero-title">探索矿洞<br>发现晶石之美</h1>
+        <h1 class="hero-title">Explore the mines<br>Discover the beauty of crystals</h1>
       </div>
     </section>
 
     <!-- 修改抽奖区块，移除消费相关显示 -->
-    <section class="lottery-section" id="lottery">
-        <h2 class="section-title">幸运抽矿</h2>
-        <div class="lottery-wrapper">
-            <div class="lottery-box">
-                <div class="lottery-item" data-id="1">
-                    <div class="lottery-img">
-                        <img src="A.png" alt="摩洛哥盲石">
-                    </div>
-                    <p>摩洛哥盲石(5-8cm)</p>
-                </div>
-                <div class="lottery-item" data-id="2">
-                    <div class="lottery-img">
-                        <img src="B.jpg" alt="能量疗愈原石">
-                    </div>
-                    <p>能量疗愈原石(随机)</p>
-                </div>
-                <div class="lottery-item" data-id="3">
-                    <div class="lottery-img">
-                        <img src="C.png" alt="优惠券">
-                    </div>
-                    <p>5$优惠券</p>
-                </div>
-            </div>
-            
-            <button id="openLottery" class="lottery-button">
-                立即抽奖
-            </button>
+<!-- 修改抽奖区块，移除消费相关显示 -->
+<section class="lottery-section" id="lottery">
+  <h2 class="section-title">lucky draw</h2>
+  <div class="lottery-wrapper">
+    <div class="lottery-box">
+      <!-- 第一个抽奖项 -->
+      <div class="lottery-item" data-id="1">
+        <a href=https://www.spirtualcrafts.com/products/primary-prospecting-box?spm=..collection_fe7160ba-da35-466d-aef6-72aeef9bd7bb.header_1.1 target="_blank"> <!-- 添加超链接 -->
+          <div class="lottery-img">
+            <img src="A.png" alt="Moroccan blind stone">
+          </div>
+        </a>
+        <p>Moroccan blind stone (5-8 cm)</p>
+      </div>
 
-            <div class="lottery-rules">
-                <h3>抽矿规则</h3>
-                <ul>
-                    <li>每日可抽奖一次</li>
-                    <li>中奖后请截图联系客服领取奖励</li>
-                    <li>最终解释权归平台所有</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+      <!-- 第二个抽奖项 -->
+      <div class="lottery-item" data-id="2">
+        <a href="https://www.spirtualcrafts.com/collections/tumbled-stone?spm=..index.header_1.1&spm_prev=..collection_7636c266-fabe-400d-8cb4-d3a910fcc05e.header_1.1" target="_blank"> <!-- 添加超链接 -->
+          <div class="lottery-img">
+            <img src="B.jpg" alt="Energy Healing Stones">
+          </div>
+        </a>
+        <p>Energy Healing Stone (Random)</p>
+      </div>
+
+      <!-- 第三个抽奖项 -->
+      <div class="lottery-item" data-id="3">
+        <a href="https://example.com/link3" target="_blank"> <!-- 添加超链接 -->
+          <div class="lottery-img">
+            <img src="C.png" alt="coupon">
+          </div>
+        </a>
+        <p>5$coupon</p>
+      </div>
+    </div>
+
+    <button id="openLottery" class="lottery-button">
+      Sweepstakes Now
+    </button>
+
+    <div class="lottery-rules">
+      <h3>Pumping rules</h3>
+      <ul>
+        <li>One lucky draw per day</li>
+        <li>After winning, please take a screenshot and contact customer service to receive the reward!</li>
+        <li>The final explanation right belongs to the platform</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
     <section class="rewards" id="rewards">
-      <h2>探索奖励</h2>
+      <h2>Discovery Rewards</h2>
       <div class="rewards-grid">
         <div class="reward-item">
           <div class="reward-image">
-            <img src="discount.jpg" alt="优惠券">
+            <img src="discount.jpg" alt="coupon">
           </div>
           <div class="reward-content">
-            <h3>100积分</h3>
-            <p class="reward-description">优惠券礼包</p>
+            <h3>100 points.</h3>
+            <p class="reward-description">Coupon Packs</p>
           </div>
         </div>
         <div class="reward-item">
           <div class="reward-image">
-            <img src="morocco.png" alt="摩洛哥盲石">
+            <img src="morocco.png" alt="Moroccan blind stone">
           </div>
           <div class="reward-content">
-            <h3>400积分</h3>
-            <p class="reward-description">精选中型摩洛哥盲石</p>
+            <h3>400 points.</h3>
+            <p class="reward-description">Selected Medium Moroccan Blind Stones</p>
           </div>
         </div>
         <div class="reward-item">
           <div class="reward-image">
-            <img src="crystal-combo.png" alt="晶洞组合">
+            <img src="crystal-combo.png" alt="crystal hole combination">
           </div>
           <div class="reward-content">
-            <h3>800积分</h3>
-            <p class="reward-description">超大晶洞组合</p>
+            <h3>800 points.</h3>
+            <p class="reward-description">Mega Cave Combination</p>
           </div>
         </div>
         <div class="reward-item">
           <div class="reward-image">
-            <img src="theme.jpg" alt="星露谷礼盒">
+            <img src="theme.jpg" alt="Stardew Valley Gift Box">
           </div>
           <div class="reward-content">
             <h3>1200积分</h3>
-            <p class="reward-description">星露谷主题礼盒</p>
+            <p class="reward-description">Stardew Valley Theme Gift Box</p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- 地层展示区块 -->
     <!-- 积分规则区 -->
     <section class="points-rules" id="points">
       <div class="rules-content">
-        <h2>积分规则</h2>
+        <h2>Points Rules</h2>
         <div class="rules-grid">
           <div class="rule-item">
             <span class="rule-icon">💎</span>
-            <h4>消费转换</h4>
-            <p>每消费1$ = 1积分</p>
+            <h4>Consumption switching</h4>
+            <p>Every $1 spent = 1 point</p>
           </div>
           <div class="rule-item">
             <span class="rule-icon">🎁</span>
-            <h4>奖励兑换</h4>
-            <p>积分可兑换优惠券</p>
+            <h4>Reward Redemption</h4>
+            <p>Points can be redeemed for coupons</p>
           </div>
           <div class="rule-item">
             <span class="rule-icon">🌟</span>
-            <h4>特别礼遇</h4>
-            <p>累计消费享限定好礼</p>
+            <h4>Special Privileges</h4>
+            <p>Accumulated spending to enjoy limited gifts</p>
           </div>
         </div>
       </div>
@@ -135,7 +145,7 @@
     <!-- 底部信息 -->
     <footer>
       <div class="footer-content">
-        <p class="legal">活动规则：积分不可兑换现金，奖励以实际发放为准。</p>
+        <p class="legal">Activity rules: Points cannot be exchanged for cash, rewards are subject to actual issuance.</p>
       </div>
     </footer>
   </main>
