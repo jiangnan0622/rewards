@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>矿洞探索 - 奖励计划</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>  
+  <nav class="nav-wrapper">
+    <div class="nav-content">
+      <h3 class="logo">下矿活动</h3>
+      <ul class="nav-links">
+        <li><a href="#rewards">奖励</a></li>
+        <li><a href="#progress">探索进度</a></li>
+        <li><a href="#points">积分规则</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 区块 -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">探索矿洞<br>发现晶石之美</h1>
+      </div>
+    </section>
+
+    <!-- 修改抽奖区块，移除消费相关显示 -->
+    <section class="lottery-section" id="lottery">
+        <h2 class="section-title">幸运抽矿</h2>
+        <div class="lottery-wrapper">
+            <div class="lottery-box">
+                <div class="lottery-item" data-id="1">
+                    <div class="lottery-img">
+                        <img src="A.png" alt="摩洛哥盲石">
+                    </div>
+                    <p>摩洛哥盲石(5-8cm)</p>
+                </div>
+                <div class="lottery-item" data-id="2">
+                    <div class="lottery-img">
+                        <img src="B.jpg" alt="能量疗愈原石">
+                    </div>
+                    <p>能量疗愈原石(随机)</p>
+                </div>
+                <div class="lottery-item" data-id="3">
+                    <div class="lottery-img">
+                        <img src="C.png" alt="优惠券">
+                    </div>
+                    <p>5$优惠券</p>
+                </div>
+            </div>
+            
+            <button id="openLottery" class="lottery-button">
+                立即抽奖
+            </button>
+
+            <div class="lottery-rules">
+                <h3>抽矿规则</h3>
+                <ul>
+                    <li>每日可抽奖一次</li>
+                    <li>中奖后请截图联系客服领取奖励</li>
+                    <li>最终解释权归平台所有</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="rewards" id="rewards">
+      <h2>探索奖励</h2>
+      <div class="rewards-grid">
+        <div class="reward-item">
+          <div class="reward-image">
+            <img src="discount.jpg" alt="优惠券">
+          </div>
+          <div class="reward-content">
+            <h3>100积分</h3>
+            <p class="reward-description">优惠券礼包</p>
+          </div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-image">
+            <img src="morocco.png" alt="摩洛哥盲石">
+          </div>
+          <div class="reward-content">
+            <h3>400积分</h3>
+            <p class="reward-description">精选中型摩洛哥盲石</p>
+          </div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-image">
+            <img src="crystal-combo.png" alt="晶洞组合">
+          </div>
+          <div class="reward-content">
+            <h3>800积分</h3>
+            <p class="reward-description">超大晶洞组合</p>
+          </div>
+        </div>
+        <div class="reward-item">
+          <div class="reward-image">
+            <img src="theme.jpg" alt="星露谷礼盒">
+          </div>
+          <div class="reward-content">
+            <h3>1200积分</h3>
+            <p class="reward-description">星露谷主题礼盒</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 地层展示区块 -->
+    <section class="mine-layers">
+      <h2 class="section-title">矿井地层探索</h2>
+      <div class="layers-container">
+        <div class="layer-section magma">
+          <div class="layer-content">
+            <h3>岩浆暗域</h3>
+            <p class="layer-range">第80-120层</p>
+            <p class="layer-description">穿越炙热岩浆，探索紫晶秘境</p>
+            <ul class="layer-features">
+              <li>稀有紫水晶矿脉</li>
+              <li>远古熔岩遗迹</li>
+              <li>神秘暗紫色矿石</li>
+            </ul>
+          </div>
+          <div class="layer-image">
+            <img src="magma.png" alt="岩浆暗域">
+          </div>
+        </div>
+        
+        <div class="layer-section ice">
+          <div class="layer-content">
+            <h3>永冻冰层</h3>
+            <p class="layer-range">第40-79层</p>
+            <p class="layer-description">穿越冰晶世界，寻找冰蓝宝石</p>
+            <ul class="layer-features">
+              <li>晶莹剔透的冰洞</li>
+              <li>蓝宝石矿脉</li>
+              <li>千年冰晶矿藏</li>
+            </ul>
+          </div>
+          <div class="layer-image">
+            <img src="ice.png" alt="永冻冰层">
+          </div>
+        </div>
+        
+        <div class="layer-section soil">
+          <div class="layer-content">
+            <h3>棕色地层</h3>
+            <p class="layer-range">第1-39层</p>
+            <p class="layer-description">探索表层矿藏，发现基础矿石</p>
+            <ul class="layer-features">
+              <li>丰富的铁矿脉</li>
+              <li>常见宝石矿床</li>
+              <li>基础矿物资源</li>
+            </ul>
+          </div>
+          <div class="layer-image">
+            <img src="soil.png" alt="棕色地层">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 积分规则区 -->
+    <section class="points-rules" id="points">
+      <div class="rules-content">
+        <h2>积分规则</h2>
+        <div class="rules-grid">
+          <div class="rule-item">
+            <span class="rule-icon">💎</span>
+            <h4>消费转换</h4>
+            <p>每消费1$ = 1积分</p>
+          </div>
+          <div class="rule-item">
+            <span class="rule-icon">🎁</span>
+            <h4>奖励兑换</h4>
+            <p>积分可兑换优惠券</p>
+          </div>
+          <div class="rule-item">
+            <span class="rule-icon">🌟</span>
+            <h4>特别礼遇</h4>
+            <p>累计消费享限定好礼</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer>
+      <div class="footer-content">
+        <p class="legal">活动规则：积分不可兑换现金，奖励以实际发放为准。</p>
+        <div class="footer-links">
+          <a href="#">隐私政策</a>
+          <a href="#">使用条款</a>
+          <a href="#">联系我们</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
