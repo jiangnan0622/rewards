@@ -1478,3 +1478,49 @@ align-items: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     background: linear-gradient(45deg, #4a4a4a, #333333);
 }
+/* 去掉所有链接的下划线 */
+a {
+  text-decoration: none;
+  color: inherit; /* 继承父元素的颜色 */
+}
+
+/* 奖励区块的样式 */
+.reward-item {
+  display: block; /* 使链接占据整个区块 */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none; /* 确保没有下划线 */
+  color: inherit; /* 继承父元素的颜色 */
+}
+
+/* 鼠标悬停效果 */
+.reward-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 奖励图片样式 */
+.reward-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 奖励内容样式 */
+.reward-content {
+  padding: 16px;
+  text-align: center;
+}
+
+.reward-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.25rem;
+}
+
+.reward-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}

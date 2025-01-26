@@ -39,9 +39,9 @@ const REWARD_LEVELS = [
 
 // 抽奖奖品配置
 const LOTTERY_PRIZES = [
-    { id: 1, name: '摩洛哥盲石(5-8cm)', probability: 5, image: 'A.png' },
-    { id: 2, name: '能量疗愈原石(随机)', probability: 25, image: 'B.jpg' },
-    { id: 3, name: '5$优惠券', probability: 70, image: 'C.png' }
+    { id: 1, name: 'Moroccan Blind Stone (5-8 cm)', probability: 5, image: 'A.png' },
+    { id: 2, name: 'Energy Healing Stone (random)', probability: 25, image: 'B.jpg' },
+    { id: 3, name: '5$ Coupon', probability: 70, image: 'C.png' }
 ];
 
 // 矿层配置
