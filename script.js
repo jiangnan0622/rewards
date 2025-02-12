@@ -46,40 +46,50 @@ const LOTTERY_PRIZES = [
 
 // 矿层配置
 const LAYERS = {
-    soil: { start: 1, end: 39, name: '棕色地层' },
-    ice: { start: 40, end: 79, name: '永冻冰层' },
-    magma: { start: 80, end: 120, name: '岩浆暗域' }
+    soil: { start: 1, end: 39, name: 'Brown Rock Layer' },
+    ice: { start: 40, end: 79, name: 'Permafrost Layer' },
+    magma: { start: 80, end: 120, name: 'Magma Underworld' }
 };
 
 // 获取DOM元素
 const progressElement = document.getElementById("progress");
 const currentLayerElement = document.getElementById("current-layer");
 
-// 修改抽奖次数限制变量
+// 抽奖相关变量
 let remainingDraws = 1; // 每天1次抽奖机会
-const MAX_DRAWS_PER_DAY = 1;
-let lastResetDate = new Date().toDateString();
+let lastDrawDate = localStorage.getItem('lastDrawDate') || ''; // 获取上次抽奖日期
 
 // 重置抽奖次数函数
 function resetDraws() {
     const today = new Date().toDateString();
-    if (today !== lastResetDate) {
-        remainingDraws = MAX_DRAWS_PER_DAY;
-        lastResetDate = today;
-        localStorage.setItem('lastResetDate', lastResetDate);
-        localStorage.setItem('remainingDraws', remainingDraws);
+    if (today !== lastDrawDate) {
+        remainingDraws = 1;
+        lastDrawDate = today;
+        localStorage.setItem('lastDrawDate', lastDrawDate);
     }
+}
+
+// 检查是否可以抽奖
+function canDraw() {
+    const today = new Date().toDateString();
+    if (lastDrawDate !== today) {
+        // 新的一天，重置抽奖次数
+        remainingDraws = 1;
+        return true;
+    }
+    // 如果今天已经抽过奖，则返回false
+    return remainingDraws > 0;
 }
 
 // 更新抽奖按钮状态
 function updateLotteryButton() {
     const lotteryBtn = document.getElementById('openLottery');
-    if (remainingDraws <= 0) {
+    if (!canDraw()) {
         lotteryBtn.disabled = true;
-        lotteryBtn.textContent = 'Today is Drawings';
+        lotteryBtn.textContent = 'Today is drawn';
     } else {
         lotteryBtn.disabled = false;
-        lotteryBtn.textContent = 'Sweepstakes Now';
+        lotteryBtn.textContent = 'Draw Now';
     }
 }
 
@@ -321,30 +331,22 @@ function drawPrize() {
     return LOTTERY_PRIZES[LOTTERY_PRIZES.length - 1];
 }
 
-// 修改抽奖按钮事件监听
+// 抽奖按钮点击事件
 document.getElementById('openLottery').addEventListener('click', function() {
-    resetDraws(); // 检查是否需要重置次数
-    
-    if (remainingDraws <= 0) {
-        alert('Today's lottery has been drawn, please come back tomorrow!');
+    if (!canDraw()) {
+        alert('You have drawn today, please come back tomorrow!');
         return;
     }
     
-    // 扣除抽奖次数
-    remainingDraws--;
-    localStorage.setItem('remainingDraws', remainingDraws);
-    
-    // 更新按钮显示
-    updateLotteryButton();
+    // 开始抽奖
+    const prize = drawPrize();
+    this.disabled = true;
     
     // 抽奖动画
     const lotteryItems = document.querySelectorAll('.lottery-item');
     let currentIndex = 0;
     let rounds = 0;
     const totalRounds = 5;
-    
-    const prize = drawPrize();
-    this.disabled = true;
     
     const animate = () => {
         lotteryItems.forEach(item => item.classList.remove('active'));
@@ -365,7 +367,11 @@ document.getElementById('openLottery').addEventListener('click', function() {
             
             setTimeout(() => {
                 showResult(prize);
-                this.disabled = false;
+                // 更新抽奖状态
+                remainingDraws = 0;
+                lastDrawDate = new Date().toDateString();
+                localStorage.setItem('lastDrawDate', lastDrawDate);
+                updateLotteryButton();
             }, 500);
         }
     };
@@ -373,17 +379,17 @@ document.getElementById('openLottery').addEventListener('click', function() {
     animate();
 });
 
-// 修改中奖结果显示函数
+// 显示抽奖结果
 function showResult(prize) {
     const resultDiv = document.createElement('div');
     resultDiv.className = 'lottery-result';
     resultDiv.innerHTML = `
         <div class="result-content">
-            <h3>🎉 Congratulations on getting</h3>
+            <h3>🎉 Congratulations on winning</h3>
             <img src="${prize.image}" alt="${prize.name}">
             <p class="prize-name">${prize.name}</p>
             <p class="result-tip">Please take a screenshot and contact customer service to receive the reward</p>
-            <button onclick="this.parentElement.parentElement.remove()">Are you sure</button>
+            <button onclick="this.parentElement.parentElement.remove()">Confirm</button>
         </div>
     `;
     document.body.appendChild(resultDiv);
@@ -420,45 +426,5 @@ document.addEventListener('keypress', function(e) {
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
-    // 从localStorage读取上次重置时间和剩余次数
-    const savedResetDate = localStorage.getItem('lastResetDate');
-    const savedDraws = localStorage.getItem('remainingDraws');
-    
-    if (savedResetDate) {
-        lastResetDate = savedResetDate;
-    }
-    
-    if (savedDraws !== null) {
-        remainingDraws = parseInt(savedDraws);
-    }
-    
-    resetDraws(); // 检查是否需要重置
-    updateLotteryButton(); // 更新按钮状态
-    
-    // Update reward pools
-    function setLotteryPool(layerType) {
-        const rewards = {
-            magma: ['Rare Amethyst', 'Ancient Lava', 'Dark Purple Ore'],
-            ice: ['Ice Sapphire', 'Millennial Ice Crystal', 'Blue Crystal Ore'],
-            soil: ['Iron Ore', 'Common Gems', 'Basic Minerals']
-        };
-        
-        const images = {
-            magma: ['magma1.jpg', 'magma2.jpg', 'magma3.jpg'],
-            ice: ['ice1.jpg', 'ice2.jpg', 'ice3.jpg'],
-            soil: ['soil1.jpg', 'soil2.jpg', 'soil3.jpg']
-        };
-        
-        // Update prize displays
-        lotteryItems.forEach((item, index) => {
-            item.querySelector('p').textContent = rewards[layerType][index];
-            item.querySelector('img').src = `images/rewards/${images[layerType][index]}`;
-        });
-    }
-    
-    // When lottery ends
-    setTimeout(() => {
-        alert(`Congratulations! You won: ${lotteryItems[winner].querySelector('p').textContent}`);
-        startBtn.disabled = false;
-    }, 500);
+    updateLotteryButton();
 });
