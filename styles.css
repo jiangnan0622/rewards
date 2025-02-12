@@ -1,4 +1,4 @@
-/* 重置和基础样式 */
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* 导航栏 */
+/* Navigation */
 .nav-wrapper {
   position: fixed;
   top: 0;
@@ -54,7 +54,7 @@ body {
   color: #9333ea;
 }
 
-/* 英雄区块 */
+/* Hero section */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -126,7 +126,7 @@ body {
   background: linear-gradient(90deg, transparent, #ffd700, transparent);
 }
 
-/* 动画效果 */
+/* Animation effects */
 @keyframes shimmer {
   0% {
     background-position: 0% 0%;
@@ -145,7 +145,7 @@ body {
   }
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 3rem;
@@ -160,17 +160,17 @@ body {
   }
 }
 
-/* 奖励区块样式 */
+/* Rewards section */
 .rewards {
   padding: 8rem 2rem;
-  background: #f5f5f7; /* 浅灰色背景 */
+  background: #f5f5f7;
 }
 
 .rewards h2 {
   text-align: center;
   font-size: 3rem;
   margin-bottom: 4rem;
-  color: #1d1d1f; /* 深灰色标题 */
+  color: #1d1d1f;
   font-weight: 600;
   letter-spacing: -0.5px;
 }
@@ -199,7 +199,7 @@ body {
 
 .reward-image {
   width: 100%;
-  height: 180px; /* 固定高度 */
+  height: 180px; /* Fixed height */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,9 +207,9 @@ body {
 }
 
 .reward-image img {
-  width: 120%; /* 图片宽度占满容器 */
-  height: 120%; /* 图片高度占满容器 */
-  object-fit: cover; /* 保持图片比例，完整显示 */
+  width: 120%; /* Image width fills container */
+  height: 120%; /* Image height fills container */
+  object-fit: cover; /* Maintain image aspect ratio, fully display */
   transition: transform 0.3s ease;
 }
 
@@ -220,30 +220,30 @@ body {
 .reward-content {
   padding: 1.5rem;
   text-align: center;
-  background: #ffffff; /* 白色背景 */
+  background: #ffffff; /* White background */
 }
 
 .reward-content h3 {
   font-size: 1.5rem;
-  color: #1d1d1f; /* 深灰色文字 */
+  color: #1d1d1f; /* Dark gray text */
   margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .reward-description {
   font-size: 1.1rem;
-  color: #666666; /* 浅灰色文字 */
+  color: #666666; /* Light gray text */
   margin-bottom: 0.5rem;
 }
 
 .reward-detail {
   display: block;
   font-size: 0.9rem;
-  color: #888888; /* 更浅的灰色 */
+  color: #888888; /* Even lighter gray */
   margin-top: 0.5rem;
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 1200px) {
   .rewards-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -262,7 +262,7 @@ body {
   }
 
   .reward-image {
-    height: 250px; /* 调整高度 */
+    height: 250px; /* Adjust height */
   }
 
   .reward-content h3 {
@@ -280,167 +280,11 @@ body {
   }
 
   .reward-image {
-    height: 200px; /* 调整高度 */
+    height: 200px; /* Adjust height */
   }
 }
 
-/* 响应式调整 */
-@media (max-width: 1200px) {
-  .rewards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .rewards {
-    padding: 4rem 1rem;
-  }
-
-  .rewards h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .reward-image {
-    height: 180px;
-  }
-
-  .reward-content h3 {
-    font-size: 1.3rem;
-  }
-
-  .reward-description {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .rewards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reward-image {
-    height: 150px;
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: 1200px) {
-  .rewards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .rewards {
-    padding: 4rem 1rem;
-  }
-
-  .rewards h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-
-  .reward-image {
-    height: 300px;
-  }
-
-  .reward-content h3 {
-    font-size: 1.3rem;
-  }
-
-  .reward-description {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .rewards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reward-image {
-    height: 250px;
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: 1200px) {
-  .rewards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .rewards {
-    padding: 4rem 1rem;
-  }
-
-  .rewards h2 {
-    font-size: 2rem;
-  }
-
-  .reward-image {
-    height: 250px; /* 调整高度 */
-  }
-
-  .reward-content {
-    padding: 0.8rem 1rem;
-  }
-
-  .reward-content h3 {
-    font-size: 1.2rem;
-  }
-
-  .reward-description {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .rewards-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .reward-image {
-    height: 200px; /* 调整高度 */
-  }
-}
-
-/* 响应式调整 */
-@media (max-width: 1200px) {
-  .rewards-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .rewards {
-    padding: 4rem 1rem;
-  }
-  
-  .rewards h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .reward-image {
-    width: 160px;
-    height: 160px;
-  }
-}
-
-@media (max-width: 480px) {
-  .rewards-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 积分规则区 */
+/* Points rules section */
 .points-rules {
   padding: 6rem 2rem;
   background: #1a1a1a;
@@ -473,7 +317,7 @@ body {
   display: block;
 }
 
-/* 底部 */
+/* Footer */
 footer {
   padding: 2rem;
   background: #f5f5f7;
@@ -486,7 +330,7 @@ footer {
   text-align: center;
 }
 
-/* 响应式设计 */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -503,7 +347,7 @@ footer {
   }
 }
 
-/* 地层展示区样式 */
+/* Mine layers section */
 .mine-layers {
   padding: 6rem 2rem;
   background: #000;
@@ -579,7 +423,7 @@ footer {
   display: block;
 }
 
-/* 岩浆层样式 */
+/* Magma layer style */
 .magma {
   background: linear-gradient(45deg, #4a0028 0%, #800046 100%);
   box-shadow: 0 0 30px rgba(128, 0, 70, 0.3);
@@ -590,7 +434,7 @@ footer {
   mix-blend-mode: overlay;
 }
 
-/* 冰层样式 */
+/* Ice layer style */
 .ice {
   background: linear-gradient(45deg, #003666 0%, #0066cc 100%);
   box-shadow: 0 0 30px rgba(0, 102, 204, 0.3);
@@ -601,7 +445,7 @@ footer {
   mix-blend-mode: overlay;
 }
 
-/* 土层样式 */
+/* Soil layer style */
 .soil {
   background: linear-gradient(45deg, #4b2810 0%, #8b4513 100%);
   box-shadow: 0 0 30px rgba(139, 69, 19, 0.3);
@@ -651,7 +495,7 @@ footer {
   color: rgba(255,255,255,0.5);
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .layer-section {
     flex-direction: column;
@@ -678,7 +522,7 @@ footer {
   }
 }
 
-/* 弹窗样式 */
+/* Modal styles */
 .modal {
   display: none;
   position: fixed;
@@ -794,7 +638,7 @@ footer {
   box-shadow: none;
 }
 
-/* 响应式调整 */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .lottery-box {
     grid-template-columns: repeat(2, 1fr);
@@ -811,7 +655,7 @@ footer {
   }
 }
 
-/* 添加图片上传相关样式 */
+/* Add image upload related styles */
 .prize-image {
     position: relative;
     width: 100px;
@@ -862,7 +706,7 @@ footer {
     display: block;
 }
 
-/* 更新抽奖相关样式 */
+/* Update lottery related styles */
 .lottery-info {
     margin-bottom: 2rem;
     text-align: center;
@@ -966,7 +810,6 @@ footer {
     object-fit: cover;
     border-radius: 10px;
     margin: 1rem 0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .prize-name {
@@ -997,7 +840,7 @@ footer {
     background: linear-gradient(45deg, #4a4a4a, #333333);
 }
 
-/* 奖励通知样式 */
+/* Reward notification styles */
 .reward-notification {
     position: fixed;
     top: 0;
@@ -1063,7 +906,7 @@ footer {
     background: #333;
 }
 
-/* 进度显示优化 */
+/* Progress display optimization */
 .progress-info {
     text-align: center;
     margin: 1rem 0;
@@ -1075,7 +918,7 @@ footer {
     margin-top: 0.5rem;
 }
 
-/* 矿洞地图样式 */
+/* Mine map styles */
 .mine-map {
     background: #1a1a1a;
     padding: 2rem;
@@ -1112,7 +955,7 @@ footer {
     transition: width 0.3s ease;
 }
 
-/* 购物车提醒样式 */
+/* Shopping cart reminder styles */
 .cart-reminder {
     background: #f8f9fa;
     padding: 1rem;
@@ -1143,7 +986,7 @@ footer {
     border-radius: 8px;
 }
 
-/* 账户模态框样式 */
+/* Account modal styles */
 .account-modal {
     position: fixed;
     top: 0;
@@ -1220,7 +1063,7 @@ footer {
     z-index: 100;
 }
 
-/* 抽奖区块样式 */
+/* Lottery section styles */
 .lottery-section {
     padding: 6rem 2rem;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
@@ -1266,7 +1109,6 @@ footer {
     font-size: 1.2rem;
     color: #e0e7ff;
 }
-
 
 .lottery-box {
   /*display: grid;*/
@@ -1380,7 +1222,7 @@ align-items: center;
     display: none;
 }
 
-/* 进度条样式 */
+/* Progress bar styles */
 .progress-bar {
     width: 100%;
     height: 10px;
@@ -1396,7 +1238,7 @@ align-items: center;
     transition: width 0.5s ease;
 }
 
-/* 抽奖弹窗样式 */
+/* Lottery modal styles */
 .lottery-modal {
     display: none;
     position: fixed;
@@ -1457,7 +1299,7 @@ align-items: center;
     }
 }
 
-/* 修改原有的抽奖按钮样式 */
+/* Modify original lottery button styles */
 #openLottery {
     background: linear-gradient(45deg, #333333, #4a4a4a);
     color: white;
@@ -1478,37 +1320,37 @@ align-items: center;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     background: linear-gradient(45deg, #4a4a4a, #333333);
 }
-/* 去掉所有链接的下划线 */
+/* Remove all link underlines */
 a {
   text-decoration: none;
-  color: inherit; /* 继承父元素的颜色 */
+  color: inherit; /* Inherit parent element's color */
 }
 
-/* 奖励区块的样式 */
+/* Reward item styles */
 .reward-item {
-  display: block; /* 使链接占据整个区块 */
+  display: block; /* Link occupies entire block */
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none; /* 确保没有下划线 */
-  color: inherit; /* 继承父元素的颜色 */
+  text-decoration: none; /* Ensure no underline */
+  color: inherit; /* Inherit parent element's color */
 }
 
-/* 鼠标悬停效果 */
+/* Hover effect */
 .reward-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* 奖励图片样式 */
+/* Reward image styles */
 .reward-image img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* 奖励内容样式 */
+/* Reward content styles */
 .reward-content {
   padding: 16px;
   text-align: center;

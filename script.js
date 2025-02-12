@@ -9,29 +9,29 @@ const LOTTERY_THRESHOLD = 200; // 抽奖门槛
 const REWARD_LEVELS = [
     { 
         points: 100, 
-        reward: '优惠券礼包', 
-        description: '满100减10、满200减20等优惠券',
+        reward: 'Coupon Package', 
+        description: 'Coupons like $10 off for every $100 spent, $20 off for every $200 spent, etc.',
         image: 'coupon.jpg',
         layer: 10
     },
     { 
         points: 400, 
-        reward: '摩洛哥盲石', 
-        description: '中型摩洛哥盲石(8-10cm)',
+        reward: 'Moroccan Geode', 
+        description: 'Medium-sized Moroccan geode (8-10cm)',
         image: 'morocco.jpg',
         layer: 40
     },
     { 
         points: 800, 
-        reward: '超大晶洞组合', 
-        description: '摩洛哥+墨西哥晶洞套装',
+        reward: 'Large Crystal Geode Combo', 
+        description: 'Moroccan + Mexican geode set',
         image: 'crystal-combo.jpg',
         layer: 80
     },
     { 
         points: 1200, 
-        reward: '星露谷主题礼盒', 
-        description: '限量版收藏珍品',
+        reward: 'Stardew Valley Theme Box', 
+        description: 'Limited edition collectible',
         image: 'stardew-box.jpg',
         layer: 120
     }
@@ -203,10 +203,10 @@ function generateRewardsList() {
             <div class="reward-info">
                 <p class="reward-name">${reward.reward}</p>
                 <p class="reward-desc">${reward.description}</p>
-                <p class="points-required">需要积分：${reward.points}</p>
+                <p class="points-required">Points Required:${reward.points}</p>
             </div>
             <button ${currentPoints >= reward.points ? '' : 'disabled'}>
-                ${currentPoints >= reward.points ? '立即兑换' : '积分不足'}
+                ${currentPoints >= reward.points ? 'Redeem now' : 'Insufficient points'}
             </button>
         </div>
     `).join('');
@@ -274,7 +274,7 @@ function updateProgressDisplay() {
 function updateRewardDescription(nextReward) {
     const rewardDescElement = document.getElementById('next-reward-desc');
     if (rewardDescElement) {
-        rewardDescElement.textContent = `下一个奖励: ${nextReward.reward} (${nextReward.description})`;
+        rewardDescElement.textContent = `Next Reward: ${nextReward.reward} (${nextReward.description})`;
     }
 }
 
@@ -297,11 +297,11 @@ function showRewardNotification(reward) {
     notification.className = 'reward-notification';
     notification.innerHTML = `
         <div class="notification-content">
-            <h3>🎉 恭喜解锁新奖励!</h3>
+            <h3>🎉 Congratulations on unlocking new rewards!</h3>
             <img src="images/${reward.image}" alt="${reward.reward}">
             <p>${reward.reward}</p>
             <p class="description">${reward.description}</p>
-            <button onclick="this.parentElement.parentElement.remove()">确定</button>
+            <button onclick="this.parentElement.parentElement.remove()">Are you sure</button>
         </div>
     `;
     document.body.appendChild(notification);
@@ -326,7 +326,7 @@ document.getElementById('openLottery').addEventListener('click', function() {
     resetDraws(); // 检查是否需要重置次数
     
     if (remainingDraws <= 0) {
-        alert('今日已抽奖，请明天再来！');
+        alert('Today's lottery has been drawn, please come back tomorrow!');
         return;
     }
     
@@ -379,11 +379,11 @@ function showResult(prize) {
     resultDiv.className = 'lottery-result';
     resultDiv.innerHTML = `
         <div class="result-content">
-            <h3>🎉 恭喜获得</h3>
+            <h3>🎉 Congratulations on getting</h3>
             <img src="${prize.image}" alt="${prize.name}">
             <p class="prize-name">${prize.name}</p>
-            <p class="result-tip">请截图联系客服领取奖励</p>
-            <button onclick="this.parentElement.parentElement.remove()">确定</button>
+            <p class="result-tip">Please take a screenshot and contact customer service to receive the reward</p>
+            <button onclick="this.parentElement.parentElement.remove()">Are you sure</button>
         </div>
     `;
     document.body.appendChild(resultDiv);
@@ -403,10 +403,10 @@ function updateSpendProgress() {
     if (startBtn) {
         if (totalSpend >= LOTTERY_THRESHOLD) {
             startBtn.disabled = false;
-            startBtn.textContent = '开始抽矿';
+            startBtn.textContent = 'Start pumping';
         } else {
             startBtn.disabled = true;
-            startBtn.textContent = `消费满200$可抽矿`;
+            startBtn.textContent = `Spend $200 or more to draw mines`;
         }
     }
 }
@@ -434,4 +434,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
     resetDraws(); // 检查是否需要重置
     updateLotteryButton(); // 更新按钮状态
+    
+    // Update reward pools
+    function setLotteryPool(layerType) {
+        const rewards = {
+            magma: ['Rare Amethyst', 'Ancient Lava', 'Dark Purple Ore'],
+            ice: ['Ice Sapphire', 'Millennial Ice Crystal', 'Blue Crystal Ore'],
+            soil: ['Iron Ore', 'Common Gems', 'Basic Minerals']
+        };
+        
+        const images = {
+            magma: ['magma1.jpg', 'magma2.jpg', 'magma3.jpg'],
+            ice: ['ice1.jpg', 'ice2.jpg', 'ice3.jpg'],
+            soil: ['soil1.jpg', 'soil2.jpg', 'soil3.jpg']
+        };
+        
+        // Update prize displays
+        lotteryItems.forEach((item, index) => {
+            item.querySelector('p').textContent = rewards[layerType][index];
+            item.querySelector('img').src = `images/rewards/${images[layerType][index]}`;
+        });
+    }
+    
+    // When lottery ends
+    setTimeout(() => {
+        alert(`Congratulations! You won: ${lotteryItems[winner].querySelector('p').textContent}`);
+        startBtn.disabled = false;
+    }, 500);
 });
